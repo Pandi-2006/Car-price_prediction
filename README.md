@@ -1,130 +1,125 @@
-<h1>🚗 Car Price Prediction</h1>
+# 🚗 Car Price Prediction Project
 
-<p>This project predicts the <b>selling price of used cars</b> based on their features using <b>machine learning techniques</b>.  
-A <b>Streamlit web app</b> is included, allowing users to input car details and instantly get price predictions.</p>
+**Repository:** [Pandi-2006/Car-price_prediction](https://github.com/Pandi-2006/Car-price_prediction)
 
-<hr>
+---
 
-<h2>📂 Repository</h2>
-<p><a href="https://github.com/Pandi-2006/Car-price_prediction">Car Price Prediction - GitHub</a></p>
+## 📘 Project Overview
 
-<hr>
+This project predicts the **selling price of used cars** based on their features using **machine learning techniques**.  
+It leverages historical car sales data to estimate prices accurately, considering factors like:
 
-<h2>📖 Project Overview</h2>
-<ul>
-  <li>Predicts selling prices of used cars using historical sales data.</li>
-  <li>Considers vehicle age, mileage, engine specs, fuel type, transmission, seller type, brand and model.</li>
-  <li>Includes an interactive Streamlit app for real-time predictions.</li>
-</ul>
+- Vehicle age  
+- Mileage  
+- Engine specifications  
+- Fuel type  
+- Transmission  
+- Seller type  
+- Brand and model  
 
-<hr>
+A **Streamlit web app** is also included, allowing users to input car details and get instant price predictions.
 
-<h2>📊 Dataset</h2>
-<p><b>Source:</b> Cardekho Used Car Dataset<br>
-<b>Size:</b> 15,000+ rows, 14+ columns</p>
+---
 
-<h3>Key Features</h3>
-<ul>
-  <li><b>Categorical:</b> <code>brand</code>, <code>model</code>, <code>fuel_type</code>, <code>transmission_type</code>, <code>seller_type</code></li>
-  <li><b>Numerical:</b> <code>vehicle_age</code>, <code>km_driven</code>, <code>mileage</code>, <code>engine</code>, <code>max_power</code>, <code>seats</code></li>
-  <li><b>Target:</b> <code>selling_price</code> (INR)</li>
-</ul>
+## 📊 Dataset
 
-<hr>
+- **Source:** Cardekho Used Car Listings Dataset  
+- **Rows / Columns:** 15,000+ rows | 14+ columns  
 
-<h2>⚙️ Preprocessing</h2>
-<ul>
-  <li>Removed missing values & outliers (top 1% extreme prices/kms).</li>
-  <li>One-hot encoding for categorical features.</li>
-  <li><b>Feature Engineering:</b>
-    <ul>
-      <li><code>power_per_engine = max_power / engine</code></li>
-      <li><code>mileage_engine_factor = mileage * engine</code></li>
-    </ul>
-  </li>
-  <li>Applied <b>log transformation</b> on <code>selling_price</code> for stability.</li>
-</ul>
+### 🔑 Key Features
+| Type | Features |
+|------|-----------|
+| **Categorical** | `brand`, `model`, `fuel_type`, `transmission_type`, `seller_type` |
+| **Numerical** | `vehicle_age`, `km_driven`, `mileage`, `engine`, `max_power`, `seats` |
+| **Target Variable** | `selling_price` (in INR) |
 
-<hr>
+---
 
-<h2>🤖 Machine Learning Models</h2>
-<table>
-  <tr><th>Model</th><th>R² Score</th><th>RMSE</th></tr>
-  <tr><td>Linear Regression</td><td>0.78</td><td>0.32</td></tr>
-  <tr><td>Random Forest</td><td>0.91</td><td>0.18</td></tr>
-  <tr><td><b>XGBoost</b></td><td><b>0.9345</b></td><td><b>0.1674</b></td></tr>
-</table>
+## 🧹 Data Preprocessing
 
-<p>✅ <b>Best Model:</b> XGBoost (used in Streamlit app)</p>
+- Removed **missing values** and **outliers** (top 1% extreme prices/kms)  
+- Applied **one-hot encoding** for categorical features  
+- Created **new engineered features**:
+  - `power_per_engine = max_power / engine`
+  - `mileage_engine_factor = mileage * engine`
+- Applied **log transformation** on `selling_price` for better model stability  
 
-<p><b>Libraries Used:</b> scikit-learn, xgboost, pandas, numpy, matplotlib, seaborn, joblib, streamlit</p>
+---
 
-<hr>
+## 🤖 Machine Learning Models
 
-<h2>🚀 How to Run the Project</h2>
-<pre>
-# Clone the repository
-git clone https://github.com/Pandi-2006/Car-price_prediction.git
-cd Car-price_prediction
+| Model | R² Score | RMSE |
+|-------|-----------|------|
+| Linear Regression | 0.78 | 0.32 |
+| Random Forest | 0.91 | 0.18 |
+| **XGBoost** | **0.9345** | **0.1674** |
 
-# Install dependencies
-pip install -r requirements.txt
+**✅ Best Model:** XGBoost (used in the Streamlit app)
 
-# Run the Streamlit app
-streamlit run app.py
-</pre>
-<p>👉 Enter car details (brand, model, mileage, engine, etc.)  
-👉 Click <b>Predict Price</b> to get the estimated selling price.</p>
+### 📚 Libraries Used
+`scikit-learn`, `xgboost`, `pandas`, `numpy`, `matplotlib`, `seaborn`, `joblib`, `streamlit`
 
-<hr>
+---
 
-<h2>📂 Project Structure</h2>
-<pre>
-Car-price_prediction/
-│
-├── data/                 # Dataset (cardekho_dataset.csv)
-├── models/               # Saved models (model.pkl, feature_names.pkl)
-├── src/                  # Scripts for training & preprocessing
-│   ├── train_model.py    # Train & evaluate ML models
-│   ├── data_preprocessing.py
-│   ├── predict.py        # Make predictions
-│
-├── app.py                # Streamlit application
-├── requirements.txt      # Dependencies
-└── README.md             # Project documentation
-</pre>
+## ⚙️ Steps to Run the Project
 
-<hr>
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/Pandi-2006/Car-price_prediction.git
+   cd Car-price_prediction
+2. **Install the dependencies**
+   ```bash
+   pip install -r requirements.txt
+3. **Run the streamlit App**
+   ```bash
+   streamlit run app.py
+4. **Use the app**
+   - Enter Car detailsbrand, model, mileage, engine, etc.)
+   - Click Predict Price
+   - View the estimated selling price
+  
+## 🧾 Project Code Overview
 
-<h2>📈 Data Visualization & Insights</h2>
+- **data/** → Contains the dataset (`cardekho_dataset.csv`)  
+- **models/** → Contains saved model files (`model.pkl`, `feature_names.pkl`)  
+- **src/** → Scripts for training and preprocessing  
+  - `train_model.py` → Train and evaluate ML models  
+  - `data_preprocessing.py` → Preprocess dataset and generate features  
+  - `predict.py` → Script to make predictions  
+- **app.py** → Streamlit application for live predictions  
 
-<h3>1. Selling Price Distribution</h3>
-<img src="path/to/selling_price_distribution.png" alt="Selling Price Distribution" />
+---
 
-<h3>2. Actual vs Predicted Prices</h3>
-<img src="path/to/actual_vs_predicted.png" alt="Actual vs Predicted" />
+## 📈 Data Visualization & Insights
 
-<h3>🔑 Key Insights</h3>
-<ul>
-  <li>Vehicle <b>age</b> and <b>kilometers driven</b> have the strongest negative impact on price.</li>
-  <li><b>Luxury brands</b> and <b>newer models</b> have higher resale value.</li>
-  <li><b>Engine power</b> and <b>mileage</b> significantly affect pricing.</li>
-</ul>
+### 1️⃣ Selling Price Distribution  
+![Selling Price Distribution](assets/selling_price_distribution.png)
 
-<hr>
+### 2️⃣ Actual vs Predicted Prices  
+![Actual vs Predicted Prices](assets/actual_vs_predicted.png)
+ 
 
-<h2>🔮 Future Improvements</h2>
-<ul>
-  <li>Add features like accident history, location, insurance status.</li>
-  <li>Use ensemble methods combining XGBoost, Random Forest, and LightGBM.</li>
-  <li>Deploy a fully interactive dashboard for visualization & insights.</li>
-</ul>
+---
 
-<hr>
+### 💡 Key Insights
 
-<h2>📚 References</h2>
-<ul>
-  <li><a href="https://www.cardekho.com/">Cardekho Used Car Dataset</a></li>
-  <li><a href="https://docs.streamlit.io/">Streamlit Documentation</a></li>
-  <li><a href="https://xgboost.readthedocs.io/">XGBoost Documentation</a></li>
-</ul>
+- **Vehicle age** and **kilometers driven** have the strongest **negative impact** on price  
+- **Luxury brands** and **newer models** have **higher selling prices**  
+- **Engine power** and **mileage** significantly affect car pricing  
+
+---
+
+## 🚀 Future Improvements
+
+- Include additional features like **accident history**, **location**, and **insurance status**  
+- Use **ensemble methods** (XGBoost + Random Forest + LightGBM)  
+- Deploy a **fully interactive web app** with multiple visualization dashboards  
+
+---
+
+## 📚 References
+
+- [Cardekho Used Car Dataset](https://www.cardekho.com/)  
+- [Streamlit Documentation](https://docs.streamlit.io/)  
+- [XGBoost Documentation](https://xgboost.readthedocs.io/)
+
